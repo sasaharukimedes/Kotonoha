@@ -1,15 +1,51 @@
+
+
 <!DOCTYPE html>
-<html>
+<html lang="ja">
   <head>
-    <title>Letters</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <title><%= yield(:title) %> | Letters</title>
   </head>
 
+
   <body>
+    <header>
+    <div class="header-logo">
+      <% if @current_user %>
+        <%= link_to("Letters", "/") %>
+      <% else %>
+        <%= link_to("Letters", "/") %>
+      <% end %>
+    </div>
+    <ul class="header-menus">
+      <% if @current_user %> <%# ログインしている時 %>
+        <li> <%= link_to(@current_user.name, "/users/#{@current_user.id}") %> </li>
+        <li> <%= link_to("送信一覧", "#") %>
+        </li>
+        <li><%= link_to("新規作成", "#") %> </li>
+        <li> <%= link_to("ログアウト", "#", {method: :post}) %> </li>
+      <% else %> <%#ログインしてないとき %>
+        <li>
+          <%= link_to("Lettersとは", "/about") %>
+        </li>
+
+        <li> <%= link_to("新規登録", "#") %>
+        </li>
+        <li> <%= link_to("ログイン", "#") %> </li>
+      <% end %>
+    </ul>
+  </header>
+
+    <% if flash[:notice]%>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
     <%= yield %>
   </body>
 </html>
