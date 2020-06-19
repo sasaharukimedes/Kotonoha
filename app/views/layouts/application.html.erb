@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -9,9 +7,8 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <title><%= yield(:title) %> | Letters</title>
+    <title><%= full_title(yield(:title)) %></title>
   </head>
-
 
   <body>
     <header>
@@ -25,16 +22,15 @@
     <ul class="header-menus">
       <% if @current_user %> <%# ログインしている時 %>
         <li> <%= link_to(@current_user.name, "/users/#{@current_user.id}") %> </li>
-        <li> <%= link_to("送信一覧", "#") %>
+        <li> <%= link_to("手紙を見返す", "post_index_path") %>
         </li>
-        <li><%= link_to("新規作成", "#") %> </li>
+        <li><%= link_to("手紙を書く", "#") %> </li>
         <li> <%= link_to("ログアウト", "#", {method: :post}) %> </li>
       <% else %> <%#ログインしてないとき %>
         <li>
           <%= link_to("Lettersとは", "/about") %>
         </li>
-
-        <li> <%= link_to("新規登録", "#") %>
+        <li> <%= link_to("新規登録", "/index") %>
         </li>
         <li> <%= link_to("ログイン", "#") %> </li>
       <% end %>
