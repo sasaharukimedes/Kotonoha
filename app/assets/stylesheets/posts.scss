@@ -94,6 +94,11 @@
 }
 
 /* posts/new ================================ */
+
+.posts-new .form{
+  background-image: url(/ocean-letter.jpeg); background-size: cover; background-repeat: no-repeat;
+}
+
 .posts-new textarea {
   font-size: 20px;
   padding: 10px;
