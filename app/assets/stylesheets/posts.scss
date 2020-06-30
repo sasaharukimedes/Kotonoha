@@ -43,6 +43,7 @@
   background-color: white;
   box-shadow: 0 2px 6px #c1ced7;
   overflow: hidden;
+  background-image: url(/ocean-letter.jpeg); background-size: cover; background-repeat: no-repeat;
 }
 
 .posts-show-item img {
@@ -61,13 +62,36 @@
 }
 
 .posts-show-item p {
-  font-size: 24px;
+  font-size: 20px;
   margin: 20px 0;
+  color: #FF9933;
+  background-image:
+    repeating-linear-gradient(
+      #FFEACE,
+      #FFEACE calc(2.0rem - 3px),
+      #ced4da calc(2.0rem - 1px),
+      #ced4da 1.5rem,
+      #FFEACE 1.5rem
+    );
+  background-origin: content-box;
+  background-clip: content-box;
+  background-attachment: local;
 }
 
 .post-time {
-  color: #8899a6;
+  color:#FF9933;
   margin-bottom: 10px;
+  background-image:
+    repeating-linear-gradient(
+      #FFEACE,
+      #FFEACE calc(2.0rem - 3px),
+      #ced4da calc(2.0rem - 1px),
+      #ced4da 1.5rem,
+      #FFEACE 1.5rem
+    );
+  background-origin: content-box;
+  background-clip: content-box;
+  background-attachment: local;
 }
 
 .like-btn {
@@ -97,6 +121,7 @@
 
 .posts-new .form-body{
   background-image: url(/ocean-letter.jpeg); background-size: cover; background-repeat: no-repeat;
+  
 }
 
 .posts-new textarea {
@@ -117,7 +142,20 @@
   background-origin: content-box;
   background-clip: content-box;
   background-attachment: local;
-  
+}
+
+input[type="text"] {
+  background-image:
+    repeating-linear-gradient(
+      #FFEACE,
+      #FFEACE calc(1.5rem - 1px),
+      #ced4da calc(1.5rem - 1px),
+      #ced4da 1.5rem,
+      #FFEACE 1.5rem
+    );
+  background-origin: content-box;
+  background-clip: content-box;
+  background-attachment: local;
 }
 
 .posts-new textarea::-webkit-input-placeholder {

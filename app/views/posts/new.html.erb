@@ -1,7 +1,8 @@
 <div class="main posts-new">
   <div class="container">
     <h1 class="form-heading">手紙を書く</h1>
-    <%= form_tag ("/posts/create") do %>
+    <%=  form_with scope: :post, url: posts_path, local: true do |form| %>
+
       <% if @post.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -15,9 +16,16 @@
 
       <div class="form">
         <div class="form-body">
-          <label for="textarea-without-border"></label>
-          <textarea name = "content"></textarea>
-          <input type="submit" value="投函する">
+          <%= form.label :Dear %><br>
+          <%= form.text_field :dear %>
+          
+          <%= form.label :content %><br>
+          <%= form.text_area :content %>
+
+          <%= form.label :From %><br>
+          <%= form.text_field :from %>
+
+          <%= form.submit value="投函する" %>
         </div>
       </div>
     <% end %>
