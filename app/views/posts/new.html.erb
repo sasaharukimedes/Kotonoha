@@ -2,9 +2,20 @@
   <div class="container">
     <h1 class="form-heading">手紙を書く</h1>
     <%= form_tag ("/posts/create") do %>
+      <% if @post.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+        <ul>
+        <% @post.errors.full_messages.each do |msg|%>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+      <% end %>
+
       <div class="form">
         <div class="form-body">
-          <label for="textarea-without-border">枠線入れたい</label>
+          <label for="textarea-without-border"></label>
           <textarea name = "content"></textarea>
           <input type="submit" value="投函する">
         </div>

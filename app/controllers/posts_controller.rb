@@ -9,12 +9,22 @@ class PostsController < ApplicationController
   end
 
   def new
+    @post = Post.new
   end
 
   def create
-    @post = Post.new(content:params[:content])
-    @post.save
-    redirect_to('/posts/index')
+    @post = Post.new(post_params)
+    if @post.save
+      redirect_to "/about"
+    else
+      redirect_to "/"
+    end
   end
+
+    private 
+        def post_params
+          params.permit(:content)
+          #一旦requireを消してみる
+        end
   
 end
