@@ -2,18 +2,10 @@
   <div class="container">
     <div class="posts-show-item">
       <p>
-        <%= @post.dear %>
-        <br>
-        <br>
-
-        <%= @post.content %>
-        <br>
-        <br>
-
-        <%=  @post.from %>
-        <br>
-      
-        <%= @post.created_at.to_s(:datetime_jp) %>
+        <span><%= @post.dear %></span>
+        <span><%= @post.content %></span>
+        <span><%=  @post.from %><br>
+        <%= @post.created_at.to_s(:datetime_jp) %></span>
       </p>
     </div>
   </div>
