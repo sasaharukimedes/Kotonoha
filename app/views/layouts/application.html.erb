@@ -19,25 +19,23 @@
         <%= link_to("Letters", "/") %>
       <% end %>
     </div>
-    <ul class="header-menus">
-      <% if @current_user %> <%# ログインしている時 %>
-        <li> <%= link_to(@current_user.name, "/users/#{@current_user.id}") %> </li>
-        <li> <%= link_to("手紙を見返す", "#") %>
-        </li>
-        <li><%= link_to("手紙を書く", "/posts/new") %> </li>
-        <li> <%= link_to("ログアウト", "#", {method: :post}) %> </li>
-      <% else %> <%#ログインしてないとき %>
-        <li>
-          <%= link_to("Lettersとは", "/about") %>
-        </li>
-        <li> <%= link_to("読み返す", "/posts") %>
-        </li>
-        <li>
-          <%= link_to("手紙を書く", "/posts/new") %>
-        </li>
-      <% end %>
-    </ul>
-  </header>
+
+    <nav>
+      <ul class="header-menus">
+          <% if user_signed_in? %>
+            <li><strong><%= link_to current_user.username, pages_show_path %></strong></li>
+            <li><%= link_to 'プロフィール変更', edit_user_registration_path %></li>
+            <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+          <% else %>
+            <li><%= link_to("Lettersとは", "/about") %></li>
+            <li><%= link_to("読み返す", "/posts") %></li>
+            <li><%= link_to("手紙を書く", "/posts/new") %></li>
+            <li><%= link_to '新規登録', new_user_registration_path %></li>
+            <li><%= link_to 'ログイン', new_user_session_path %></li>
+          <% end %>
+      </ul>
+    </nav>
+    </header>
 
 
     <p class="notice"><%= notice %></p>
