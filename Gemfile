@@ -27,6 +27,7 @@ gem 'bcrypt'
 gem 'devise'
 gem 'devise-i18n'
 
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
@@ -38,6 +39,8 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'sqlite3'
   gem 'rspec-rails'
+  gem 'factory_bot_rails'
+  gem 'spring-commands-rspec'
 end
 
 group :development do
@@ -52,12 +55,12 @@ end
 group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
-  gem 'selenium-webdriver'
+  #gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
+  gem 'selenium-webdriver'
   gem 'webdrivers'
-  gem 'rails-controller-testing'
-  gem 'minitest'
-  gem 'minitest-reporters'
+  gem 'faker'
+
 end
 
 group :production do
