@@ -61,57 +61,7 @@ body {
 }
 
 /* ヘッダー ================================ */
-header {
-  height: 64px;
-  position: absolute;
-  z-index: 1;
-  width: 100%;
-}
 
-.header-logo {
-  float: left;
-  padding-left: 20px;
-  color: #FFF7EB;
-  font-size: 22px;
-  line-height: 64px;
-}
-
-.header-logo a{
-  color: #FFF7EB;
-  font-size: 22px;
-}
-
-.header-menus {
-  float: right;
-  padding-right: 20px;
-}
-
-.header-menus li {
-  float: left;
-  line-height: 64px;
-  font-size: 13px;
-  color: #FFF7EB;
-  padding-left: 15px;
-}
-
-.header-menus a {
-  float: left;
-  font-size: 13px;
-  color: #FFF7EB;
-}
-
-.header-menus .fa {
-  padding-right: 5px;
-}
-
-.header-menus input[type="submit"] {
-  padding: 0 20px;
-  float: left;
-  line-height: 64px;
-  color: #FFF7EB;
-  margin: 0;
-  font-size: 13px;
-}
 
 /* top ================================ */
 .top-main {
@@ -123,7 +73,7 @@ header {
   height: auto;
   min-height: 100%;
   color: #FFF7EB;
-  background-color: #ff9933;
+
   background-repeat: no-repeat;
   background-position: center 50%;
   background-size: cover;
@@ -147,24 +97,26 @@ header {
 }
 
 /* about ================================ */
-.about-main {
-  padding: 180px 8% 0;
-  color: #FFF7EB;
+
+.col-md-auto {
+  background-color: #ff9933;
 }
 
-.about-main h2 {
+.col-md-auto h2 {
   font-size: 64px;
   font-weight: 500;
   line-height: 1.4;
+  color:#FFF7EB;
 }
 
-.about-main p {
+.col-md-auto p {
   font-weight: 200;
   font-size: 20px;
+  color: #FFF7EB;
 }
 
-.about-img {
-  width: 84%;
+.col-md-auto {
+  width: 50%;
 }
 
 /* フォーム================================ */

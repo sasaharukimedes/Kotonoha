@@ -1,4 +1,5 @@
 class Post < ApplicationRecord
+
   validates :dear, presence: true,
                     length: {maximum:20}
   validates :content, presence: true,

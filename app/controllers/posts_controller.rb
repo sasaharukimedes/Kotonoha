@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!, except: [:index]
 
   def index
     @posts = Post.all.order(created_at: :desc)
@@ -6,6 +7,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @user =@post.user
   end
 
   def new
@@ -14,12 +16,9 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    
-    if @post.save
-      redirect_to "/posts"
-    else
-      render "new"
-    end
+    @post.user_id = current_user.id # user_idの情報はフォームからはきていないので、deviseのメソッドを使って「ログインしている自分のid」を代入
+    @post.save
+    redirect_to posts_path
   end
 
 

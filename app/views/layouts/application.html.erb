@@ -7,40 +7,30 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application': "reload"%>
+    <!--[if lt IE 9]>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
+  </script>
+<![endif]-->
     <title><%= full_title(yield(:title)) %></title>
   </head>
 
   <body>
     <header>
-    <div class="header-logo">
-      <% if @current_user %>
-        <%= link_to("Letters", "/") %>
-      <% else %>
-        <%= link_to("Letters", "/") %>
-      <% end %>
-    </div>
+      <nav>
+        <nav class="navbar navbar-expand-md sticky-top navbar-dark" style="background-color: #ff9933;">
+        <a class="navbar-brand" href="/">Letters</a>  
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#bs-navi" aria-controls="bs-navi" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
 
-    <nav>
-      <ul class="header-menus">
-          <% if user_signed_in? %>
-            <li><strong><%= link_to current_user.username, pages_show_path %></strong></li>
-            <li><%= link_to 'プロフィール変更', edit_user_registration_path %></li>
-            <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
-          <% else %>
-            <li><%= link_to("Lettersとは", "/about") %></li>
-            <li><%= link_to("読み返す", "/posts") %></li>
-            <li><%= link_to("手紙を書く", "/posts/new") %></li>
-            <li><%= link_to '新規登録', new_user_registration_path %></li>
-            <li><%= link_to 'ログイン', new_user_session_path %></li>
-          <% end %>
-      </ul>
-    </nav>
+        <div class="collapse navbar-collapse" id="bs-navi">
+          <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" href="/about">Letter とは</a></li>
+          </ul>
+        </div>
+      </nav>
     </header>
-
-
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
     <%= yield %>
-    <%= debug(params) if Rails.env.development? %>
   </body>
 </html>
