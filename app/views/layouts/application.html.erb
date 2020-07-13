@@ -16,21 +16,9 @@
   </head>
 
   <body>
-    <header>
-      <nav>
-        <nav class="navbar navbar-expand-md sticky-top navbar-dark" style="background-color: #ff9933;">
-        <a class="navbar-brand" href="/">Letters</a>  
-        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#bs-navi" aria-controls="bs-navi" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="bs-navi">
-          <ul class="navbar-nav">
-            <li class="nav-item"><a class="nav-link" href="/about">Letter とは</a></li>
-          </ul>
-        </div>
-      </nav>
-    </header>
+    <%= render 'shared/header' %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>
 </html>

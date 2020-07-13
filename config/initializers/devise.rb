@@ -14,7 +14,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '611e6e3cc7ca3d7a659016edebc62f199706856b5e6e4f75b467369ff6f47ee703112205c0b4ff5d1a80f34927ae59dfd4d90f905cc4251366919af48fd96fa6'
+  # config.secret_key = 'b071a39d7ead966319f8b0b10162c28d978a830f5dafc3431f0017c170bb67efce52a87d192565f4104ffe0fa7eff2e99afb927274086c5debd12517ec3710b4'
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -24,7 +24,9 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
+
+  #config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
+  config.mailer_sender = 'タイトル名 <noreply@example.com>'
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -47,8 +49,6 @@ Devise.setup do |config|
   # You can also supply a hash where the value is a boolean determining whether
   # or not authentication should be aborted when the value is not present.
   # config.authentication_keys = [:email]
-
-  config.scoped_views = true
 
   # Configure parameters from the request object used for authentication. Each entry
   # given should be a request method and it will automatically be passed to the
@@ -128,7 +128,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 12
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = 'afe2111aa68ac285aee735e3a9860f812c722e43abf28a3586e3b058118d5a3f9c480a408a5ec0a06ccf5111e7389258c5c9f873b282d98c4a9f72dbc2cc2be1'
+  # config.pepper = 'b0f6ff683fe60a7bfcf129f548edd2f31cbe40633856530326c6fbb154fe10a7c8f3f5a18c091bb4a3f4503d49b23f8a699c0ec628cde3bd788cd596b6fcf7cd'
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
@@ -283,6 +283,8 @@ Devise.setup do |config|
   #   manager.intercept_401 = false
   #   manager.default_strategies(scope: :user).unshift :some_external_strategy
   # end
+
+  config.scoped_views = true
 
   # ==> Mountable engine configurations
   # When using Devise inside an engine, let's call it `MyEngine`, and this engine
