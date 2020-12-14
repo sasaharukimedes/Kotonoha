@@ -18,7 +18,9 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id 
     # user_idの情報はフォームからはきていないので、deviseのメソッドを使って「ログインしている自分のid」を代入
-    @post.save
+    @post.receiver_id = User.pluck(:id).sample
+    @post.sender_id = current_user.id
+    @post.save!
     redirect_to posts_path
   end
 
