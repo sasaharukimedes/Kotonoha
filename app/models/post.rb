@@ -4,7 +4,7 @@ class Post < ApplicationRecord
   validates :dear, presence: true,
                     length: {maximum:20}
   validates :content, presence: true,
-                      length: {maximum:200}
+                      length: {maximum:300}
   validates :from, presence: true,
                     length:{maximum:20}
   validates :sender_id, presence: true
