@@ -1,6 +1,6 @@
 <div class="card col-sm-5 mx-auto mt-5">
   <div class="card-body">
-    <h2 class="mt-1 mb-3">Log in</h2>
+    <h2 class="mt-1 mb-3"><%= t('.sign_in') %></h2>
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="form-group">
@@ -10,7 +10,6 @@
 
       <div class="form-group">
         <%= f.label :password %><br />
-        <%= link_to "パスワードを忘れた場合", new_user_password_path, :class => "float-left" %><br/>
         <%= f.password_field :password, autocomplete: "current-password" %>
       </div>
 
@@ -22,12 +21,9 @@
       <% end %>
 
       <div class="actions">
-        <%= f.submit "log in", :class => "btn btn-primary btn-block" %>
+        <%= f.submit t('.sign_in'), :class => "btn btn-primary btn-block" %>
       </div>
     <% end %>
-
-    <div class="small text-muted text-center mt-4">新しいユーザですか?</div>
-    <%= link_to "アカウントを作成", new_user_registration_path, :class => "btn btn-light btn-block border mt-1" %>
 
     <%= render "devise/shared/links" %>
   </div>
