@@ -16,14 +16,14 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    @post.user_id = current_user.id 
-    # user_idの情報はフォームからはきていないので、deviseのメソッドを使って「ログインしている自分のid」を代入
-    @post.receiver_id = User.pluck(:id).sample
-    @post.sender_id = current_user.id
+    @post.sender_id = current_user.id 
+    # sender_idの情報はフォームからはきていないので、deviseのメソッドを使って「ログインしている自分のid」を代入
+    @post.receiver_id = User.where.not(id:current_user.id).order(:received_at).first.id
+
     @post.save!
     redirect_to posts_path
+    #自分で書いたやつ@post.receiver_id = User.id.where.not(id:current_user.id).order(received_at).first
   end
-
 
     private 
         def post_params
