@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @posts = Post.all.order(created_at: :desc)
@@ -7,7 +7,6 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    @user =@post.user
   end
 
   def new
@@ -15,18 +14,23 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
-    @post.sender_id = current_user.id 
-    # sender_idの情報はフォームからはきていないので、deviseのメソッドを使って「ログインしている自分のid」を代入
-    @post.receiver_id = User.where.not(id:current_user.id).order(:received_at).first.id
+    #うまく行かないので一旦適当に書いて実装
 
+    receiver_id = User.all.where.not(id:current_user.id).order(:received_at).first.id
+
+    @post = Post.new(post_params)
+    @post.sender_id = current_user.id
+    @post.receiver_id = receiver_id
     @post.save!
+
+    receiver.update!(received_at: Time.current)
     redirect_to posts_path
-    #自分で書いたやつ@post.receiver_id = User.id.where.not(id:current_user.id).order(received_at).first
   end
+
+
 
     private 
         def post_params
-          params.require(:post).permit(:dear, :content, :from)
+          params.require(:post).permit(:dear, :content, :from, :sender_id, :receiver_id)
         end
 end

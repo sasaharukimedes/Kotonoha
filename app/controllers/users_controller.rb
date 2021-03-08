@@ -19,8 +19,12 @@ class UsersController < ApplicationController
   #ここから追加分
 
   def create
-    @user = User.new(user_params)    # params[:user]実装は終わっていないことに注意!
+    @user = User.new(user_params)    
+    #params[:user]実装は終わっていないことに注意!
     #マスアサインメント脆弱性
+    @user.received_at = Time.current
+    
+
     if @user.save
       @user.send_activation_email
       flash[:info] = "Please check your email to activate your account."
