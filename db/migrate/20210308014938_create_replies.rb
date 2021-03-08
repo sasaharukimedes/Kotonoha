@@ -4,7 +4,7 @@ class CreateReplies < ActiveRecord::Migration[6.0]
       t.string :dear
       t.text :content
       t.string :from
-      t.int :post_id
+      t.integer  :post_id
 
       t.timestamps
     end

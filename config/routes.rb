@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root 'static_pages#home'
   resources :posts
   resources :users
+  resources :replies
   
   get '/', to: 'static_pages#home'
   get 'about', to: 'static_pages#about'
