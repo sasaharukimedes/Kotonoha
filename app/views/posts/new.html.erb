@@ -1,0 +1,34 @@
+<div class="main posts-new">
+  <div class="container">
+    <h1 class="form-heading">手紙を書く</h1>
+    <%=  form_with scope: :post, url: posts_path, local: true do |form| %>
+
+      <% if @post.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+        <ul>
+        <% @post.errors.full_messages.each do |msg|%>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+      <% end %>
+
+      <div class="form">
+        <div class="form-body">
+          <%= form.label :宛名 %><br>
+          <%= form.text_field :dear , placeholder: "どこかの誰かへ"%>
+          
+          
+          <%= form.label :本文 %><br>
+          <%= form.text_area :content %>
+
+          <%= form.label :差出人 %><br>
+          <%= form.text_field :from, placeholder: "試される大地の若者より"%>
+
+          <%= form.submit value="投函する" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

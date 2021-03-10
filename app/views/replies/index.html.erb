@@ -1,0 +1,8 @@
+<div class="main replies-index">
+  <div class="container">
+    <% @replies.each do |reply|%>
+      <div class="replies-index-item">
+        <%= link_to(reply.dear, "/replies/#{reply.id}") %> <br>
+      </div>
+    <% end %>
+  </div>
