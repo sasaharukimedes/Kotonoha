@@ -1,5 +1,7 @@
 class Post < ApplicationRecord
-  belongs_to :user, optional: true
+  belongs_to :user, optional: true, inverse_of: :post
+
+  #optionalは後々ユーザー2人以上でテストできるようになったら消す
   
 
   validates :dear, presence: true,
