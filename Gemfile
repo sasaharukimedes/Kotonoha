@@ -55,11 +55,15 @@ end
 group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
+  gem 'launchy'
   #gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'selenium-webdriver'
   gem 'webdrivers'
   gem 'faker'
+  gem 'shoulda-matchers'
+  gem 'vcr'
+  gem 'webmock'
 end
 
 group :production do

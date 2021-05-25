@@ -16,6 +16,7 @@ class RepliesController < ApplicationController
 
   def create
     @reply = Reply.new(reply_params)
+    @post_id = @reply.post.id
 
     @reply.save!
     redirect_to reply_path
@@ -24,7 +25,7 @@ class RepliesController < ApplicationController
 
 
 
-      private 
+      private
         def reply_params
           params.require(:reply).permit(:dear, :content, :from, :post_id)
         end
