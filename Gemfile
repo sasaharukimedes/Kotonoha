@@ -9,6 +9,8 @@ gem 'rails', '~> 6.1.3'
 
 gem 'bootstrap-sass'
 
+gem 'rubyzip'
+
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets

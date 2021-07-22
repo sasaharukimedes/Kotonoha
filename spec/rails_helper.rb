@@ -9,7 +9,7 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 
 require 'rspec/rails'
 require 'capybara/rspec'
-require 'paperclip/matchers'
+#require 'paperclip/matchers'
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -50,11 +50,22 @@ RSpec.configure do |config|
     FactoryBot.reload
   end
 
+  Capybara.default_driver = :selenium_chrome_headless
+  Capybara.register_driver :selenium_chrome_headless do |app|
+    options = Selenium::WebDriver::Chrome::Options.new
+    options.add_argument('--headless')
+    options.add_argument('--no-sandbox')
+    options.add_argument('--disable-gpu')
+    options.add_argument('--window-size=1280,1024')
+
+    Capybara::Selenium::Driver.new(app, browser: :chrome, options: options)
+  end
+
   config.include Devise::Test::IntegrationHelpers, type: :system #sign_inヘルパーを提供してくれる付録でsystemに変更済みになってた？
   config.include FactoryBot::Syntax::Methods #ついでにFactoryBotもincludeしておきます
-  config.include RequestSpecHelper, type: :request
 
-  config.include LoginModule
+  #これはいつの！？
+  #config.include RequestSpecHelper, type: :request
 
   # You can uncomment this line to turn off ActiveRecord support entirely.
   # config.use_active_record = false
@@ -90,6 +101,6 @@ RSpec.configure do |config|
     end
   end
   #paperclipのshoulda Matchersサポートを追加する
-  config.include Paperclip::Shoulda::Matchers
+  #config.include Paperclip::Shoulda::Matchers
 
 end

@@ -1,6 +1,7 @@
 require 'rails_helper'
 
-Rspec.describe User, type: :system do
+RSpec.describe User, type: :system do
+  #include LoginModule
   let(:alice) { create(:alice)}
   #let(:user) { create(:user)}
 
@@ -17,23 +18,6 @@ Rspec.describe User, type: :system do
             expect(current_path).to eq login_path
             expect(page).to have_content 'User was successfully created'
           end
-
-        end
-        content 'email is nil' do
-
-        end
-        content 'email is already used' do
-
-        end
-      end
-    end
-
-    describe 'after sign in' do
-      describe 'edit user' do
-        content 'edit_form is valid' do
-
-        end
-        content 'email is nil' do
 
         end
       end
