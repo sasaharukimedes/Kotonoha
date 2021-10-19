@@ -44,6 +44,8 @@ RSpec.configure do |config|
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
   # instead of true.
+
+
   config.use_transactional_fixtures = true
 
   config.before :all do
@@ -61,11 +63,10 @@ RSpec.configure do |config|
     Capybara::Selenium::Driver.new(app, browser: :chrome, options: options)
   end
 
-  config.include Devise::Test::IntegrationHelpers, type: :system #sign_inヘルパーを提供してくれる付録でsystemに変更済みになってた？
+  #sign_inヘルパーを提供してくれる付録でsystemに変更済みになってた？
   config.include FactoryBot::Syntax::Methods #ついでにFactoryBotもincludeしておきます
 
-  #これはいつの！？
-  #config.include RequestSpecHelper, type: :request
+  config.include Devise::Test::IntegrationHelpers, type: :request
 
   # You can uncomment this line to turn off ActiveRecord support entirely.
   # config.use_active_record = false
@@ -102,5 +103,8 @@ RSpec.configure do |config|
   end
   #paperclipのshoulda Matchersサポートを追加する
   #config.include Paperclip::Shoulda::Matchers
+
+  #webサイト参考wsl2約束の地
+  Selenium::WebDriver::Chrome::Service.driver_path = '/usr/local/bin/chromedriver'
 
 end

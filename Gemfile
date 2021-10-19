@@ -43,6 +43,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'spring-commands-rspec'
+  gem 'webdrivers'
 end
 
 group :development do
@@ -61,7 +62,7 @@ group :test do
   #gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'selenium-webdriver'
-  gem 'webdrivers'
+  #gem 'webdrivers'
   gem 'faker'
   gem 'shoulda-matchers'
   gem 'vcr'
