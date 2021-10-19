@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_08_014938) do
+ActiveRecord::Schema.define(version: 2021_10_11_135750) do
 
   create_table "posts", force: :cascade do |t|
     t.string "dear"
@@ -51,9 +51,9 @@ ActiveRecord::Schema.define(version: 2021_03_08_014938) do
     t.datetime "locked_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "username", default: "", null: false
+    t.string "username"
     t.date "birthday"
-    t.datetime "received_at"
+    t.time "received_at"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

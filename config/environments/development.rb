@@ -51,13 +51,14 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     :address => 'smtp.gmail.com',
     :port => 587,
+    :domain => "smtp.gmail.com",
     :user_name => 'updating.harukimedes@gmail.com',
-    :password => 'Hs08019710709',
+    :password => 'nrocfmmkixwtkilc',
     :authentication => :plain,
     :enable_starttls_auto => true
-    
+
   }
-    
+
 
     #address: '127.0.0.1',
     #domain: 'example.com',

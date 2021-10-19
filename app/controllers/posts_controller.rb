@@ -1,9 +1,8 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index] #:show]
 
   def index
-    #@posts = Post.all.order(created_at: :desc)
-    @post = Post.limit(10)
+    @posts = Post.all.order(created_at: :desc).limit(10)
   end
 
   def show
@@ -23,9 +22,12 @@ class PostsController < ApplicationController
     @post.save!
 
     @receiver.update!(received_at: Time.current)
+
+    #こっちはrailsガイド参考
+    #@user.received_at = User.update(received_at: Time.current)
+    @user.received_at = User.update(received_at: Time.current)
     redirect_to posts_path
   end
-
 
 
     private

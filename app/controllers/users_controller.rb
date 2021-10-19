@@ -18,26 +18,41 @@ class UsersController < ApplicationController
 
   #ここから追加分
 
+  def initialize
+    @user.received_at = Time.current
+  end
+
+
   def create
-    @user = User.new(user_params)    
+    @user = User.new(user_params)
     #params[:user]実装は終わっていないことに注意!
     #マスアサインメント脆弱性
-    @user.received_at = Time.current
-    
-
     if @user.save
       @user.send_activation_email
       flash[:info] = "Please check your email to activate your account."
-      redirect_to root_url
+      redirect_to root_url, notice: "Please check your email to activate your account."
     else
       render 'new'
     end
   end
 
   def edit
+    @user = User.find(params[:id])
+  end
+
+  def destroy
+    User.find(params[:id]).destroy
+    flash[:success] = "User deleted"
+    redirect_to root_url
+  end
+
+  #Railsガイド参照
+  def receive
+    @user.received_at = User.update(received_at: Time.current)
   end
 
   def update
+    @user = User.find(params[:id])
     if @user.update(user_params)
       flash[:success] = "Profile updated"
       redirect_to @user
