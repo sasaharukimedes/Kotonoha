@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   #ここから追加分
 
   def initialize
-    @user.received_at = Time.current
+    @user.received_at = params[received_at: :Time.now]
   end
 
 
@@ -48,7 +48,7 @@ class UsersController < ApplicationController
 
   #Railsガイド参照
   def receive
-    @user.received_at = User.update(received_at: Time.current)
+    @user.received_at = User.update(received_at: Time.now)
   end
 
   def update
@@ -61,6 +61,5 @@ class UsersController < ApplicationController
       render "edit"
     end
   end
-
 
 end
