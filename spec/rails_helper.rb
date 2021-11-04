@@ -104,7 +104,10 @@ RSpec.configure do |config|
   #paperclipのshoulda Matchersサポートを追加する
   #config.include Paperclip::Shoulda::Matchers
 
+
+  Webdrivers.logger.level = ::Logger::Severity::DEBUG
+
   #webサイト参考wsl2約束の地
-  Selenium::WebDriver::Chrome::Service.driver_path = '/usr/local/bin/chromedriver'
+  Selenium::WebDriver::Chrome::Service.driver_path = '/usr/bin/chromedriver'
 
 end

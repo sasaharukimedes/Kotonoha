@@ -21,11 +21,10 @@ class PostsController < ApplicationController
     @post.receiver_id = @receiver.id
     @post.save!
 
-    @receiver.update!(received_at: Time.current)
+    @receiver.update!(received_at: Time.now)
 
     #こっちはrailsガイド参考
-    #@user.received_at = User.update(received_at: Time.current)
-    @user.received_at = User.update(received_at: Time.current)
+    #@user.received_at = User.update(received_at: :Time.now)
     redirect_to posts_path
   end
 

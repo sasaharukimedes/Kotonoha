@@ -11,7 +11,6 @@ FactoryBot.define do
     received_at {Time.current}
     #received_atも試しにコンソールでやったらちゃんと出来てた！！
 
-
     #メール認証用
     confirmed_at {Date.today}
   end
