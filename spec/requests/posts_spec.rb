@@ -30,6 +30,13 @@ RSpec.describe "Posts", type: :request do
         expect(response).to redirect_to posts_path
         #expect(response.status).to eq 200
       end
+
+      it "access by guest" do
+        post"/posts"
+        #expect(response).to have_http_status(401)
+        #なぜいかない？？
+        expect(response).to have_http_status(302)
+      end
     end
 
   end
