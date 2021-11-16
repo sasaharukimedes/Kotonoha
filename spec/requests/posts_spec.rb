@@ -5,7 +5,9 @@ RSpec.describe "Posts", type: :request do
     before do
       @alice = FactoryBot.create(:alice)
       @user = FactoryBot.create(:user)
-      #createだとなぜかいかない
+      #@post = FactoryBot.create(:post, dear: "どこかの誰かへ", content: "お試しテストを書いています関連付け", from: "開発者より", user: @user)
+
+      #createだとなぜかいかない→解決
       #→なぜならdeviseのメール認証がファクトリボットで出来てなかったから
     end
 
@@ -26,7 +28,8 @@ RSpec.describe "Posts", type: :request do
     context "create" do
       it "access by user" do
         sign_in @user
-        post "/posts", :params => { :post => {:dear => "test", :content => "nakami", :from => "from"}}
+        post "/posts", FactoryBot.create(:post)
+        #:params => { :post => {:dear => "test", :content => "nakami", :from => "from"}}
         expect(response).to redirect_to posts_path
         #expect(response.status).to eq 200
       end

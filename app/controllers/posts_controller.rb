@@ -16,12 +16,18 @@ class PostsController < ApplicationController
   def create
     #receiverのくだりがうまくいかない
     @post = Post.new(post_params)
+    @post.user_id = current_user.id
     @post.sender_id = current_user.id
     @receiver = User.where.not(id:current_user.id).order(:received_at).first
     @post.receiver_id = @receiver.id
     @post.save!
+    #@post.save!だとバリデーションに引っかかる？？
+
+  rescue ActiveRecord::RecordInvalid => e
+    pp e.record.errors
 
     @receiver.update!(received_at: Time.now)
+
 
     #こっちはrailsガイド参考
     #@user.received_at = User.update(received_at: :Time.now)
