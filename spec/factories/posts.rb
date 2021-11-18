@@ -1,12 +1,8 @@
 FactoryBot.define do
   factory :post do
+    association :user#, factory: :alice  #←みたいにも書ける
     dear {"どこかの誰かさんへ"}
-    content {"ファクトリーボット使ってます"}
+    content {"ファクトリーボット使ってます関連付け含めテストしていきます"}
     from {"プログラム男"}
-    user_id {user.id}
-    sender_id {user.id}
-    receiver_id {}
-
-    user
   end
 end

@@ -13,5 +13,6 @@ class Post < ApplicationRecord
                     length:{maximum:25}
   validates :sender_id, presence: true
   validates :receiver_id, presence: true
+  validates :user_id, presence: true
 
 end

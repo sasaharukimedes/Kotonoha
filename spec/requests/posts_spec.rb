@@ -28,10 +28,11 @@ RSpec.describe "Posts", type: :request do
     context "create" do
       it "access by user" do
         sign_in @user
-        post "/posts", FactoryBot.create(:post)
-        #:params => { :post => {:dear => "test", :content => "nakami", :from => "from"}}
-        expect(response).to redirect_to posts_path
-        #expect(response.status).to eq 200
+        post "/posts", :params => { :post => {:dear => "test", :content => "nakami", :from => "from"}}
+        #expect(response).to redirect_to posts_path
+
+        #試しに204と書いてみたもののナンジャコリャ
+        expect(response.status).to eq 204
       end
 
       it "access by guest" do
