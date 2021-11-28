@@ -1,5 +1,6 @@
 class Reply < ApplicationRecord
   belongs_to :post
+  has_many :notifications, dependent: :destroy
 
   validates :dear, presence: true,
                     length: {maximum:25}

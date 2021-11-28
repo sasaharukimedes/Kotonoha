@@ -1,6 +1,7 @@
 class Post < ApplicationRecord
   belongs_to :user #, optional: true
   has_one :reply, dependent: :destroy
+  has_many :notifications, dependent: :destroy
 
   #optionalは後々ユーザー2人以上でテストできるようになったら消す
 
