@@ -1,20 +1,20 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
 
-  def index
+  #def index
     #@users = User.all
     #もともと上の方
-    @users = User.where(activated: true).paginate(page: params[:page])
-  end
+    #@users = User.where(activated: true).paginate(page: params[:page])
+  #end
 
-  def show
+  #def show
     #@user = User.find(params[:id])
     #@posts = @user.posts
 
-    @user = User.find(params[:id])
-    redirect_to root_url and return unless @user.activated?
-    @posts = @user.posts.paginate(page: params[:page])
-  end
+    #@user = User.find(params[:id])
+    #redirect_to root_url and return unless @user.activated?
+    #@posts = @user.posts.paginate(page: params[:page])
+  #end
 
   #ここから追加分
 
@@ -61,5 +61,10 @@ class UsersController < ApplicationController
       render "edit"
     end
   end
+
+  private
+    def user_params
+      params.require(:user).permit(:username, :email, :birthday, :received_at, )
+    end
 
 end

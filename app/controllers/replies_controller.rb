@@ -2,8 +2,7 @@ class RepliesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    #@replies = Reply.all.order(created_at: :desc)
-    @reply = Reply.limit(10)
+    @replies = Reply.all.order(created_at: :desc).limit(10)
   end
 
   def show
@@ -16,9 +15,14 @@ class RepliesController < ApplicationController
 
   def create
     @reply = Reply.new(reply_params)
-    @post_id = @reply.post.id
+    @post_id = @reply.post_id
 
     @reply.save!
+
+    #通知メソッドの呼び出し
+    @reply = Reply.find(params[:reply_id])
+    @reply.create_reply_notification_by(current_user)
+
     redirect_to reply_path
   end
 

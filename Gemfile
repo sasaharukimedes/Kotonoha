@@ -46,6 +46,7 @@ group :development, :test do
   gem 'spring-commands-rspec'
   gem 'webdrivers'
   gem 'database_cleaner'
+  gem 'faker'
 end
 
 group :development do
@@ -65,7 +66,6 @@ group :test do
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'selenium-webdriver'
   #gem 'webdrivers'
-  gem 'faker'
   gem 'shoulda-matchers'
   gem 'vcr'
   gem 'webmock'

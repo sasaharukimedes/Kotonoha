@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     resources :replies
   end
 
+  resources :notifications, only: :index
+
   get '/', to: 'static_pages#home'
   get 'about', to: 'static_pages#about'
 

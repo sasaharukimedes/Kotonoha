@@ -16,4 +16,16 @@ class Post < ApplicationRecord
   validates :receiver_id, presence: true
   validates :user_id, presence: true
 
+
+  #いったんこっちでやる
+  def create_notification_by(current_user)
+    notification=current_user.active_notifications.new(
+      post_id:self.id,
+      visited_id: self.receiver_id,
+      action:"post"
+    )
+    notification.save if notification.valid?
+  end
+
+
 end

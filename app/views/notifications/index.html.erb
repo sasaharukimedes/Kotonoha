@@ -1,0 +1,13 @@
+<div class="main notifications-index">
+  <div class="container">
+    <h1 class="form-heading">手紙を読む</h1>
+    <% if @notifications.exists?%>
+      <div class="user-index">
+        <%= render @notifications %>
+        <%= pagenate @notifications %>
+      </div>
+    <% else %>
+        <p>手紙はまだ来ていません</p>
+    <% end %>
+  </div>
+</div>
