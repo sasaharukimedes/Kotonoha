@@ -46,7 +46,6 @@ group :development, :test do
   gem 'spring-commands-rspec'
   gem 'webdrivers'
   gem 'database_cleaner'
-  gem 'faker'
 end
 
 group :development do

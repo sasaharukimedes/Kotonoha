@@ -1,13 +1,24 @@
 <div class="main notifications-index">
   <div class="container">
     <h1 class="form-heading">手紙を読む</h1>
-    <% if @notifications.exists?%>
-      <div class="user-index">
-        <%= render @notifications %>
-        <%= pagenate @notifications %>
-      </div>
+    <% case @notifications %>
+    <%# おそらくpluckでとってきてそのまま判別はできないだろうからなにか考える %>
+    <% when @notifications.pluck(:action == "post") %>
+      <% @notifications.each do |notification|%>
+        <div class="notifications-index-item">
+          <%= link_to(post.dear, "/posts/#{post.id}") %> <br>
+        </div>
+      <% end %>
+    <% when @notifications.pluck(:action == "reply") %>
+      <% @notifications.each do |notification|%>
+        <div class="notifications-index-item">
+          <%= link_to(reply.dear, "/replies/#{replies.id}") %> <br>
+        </div>
+      <% end %>
     <% else %>
+      <div class="notifications-index-item">
         <p>手紙はまだ来ていません</p>
+      </div>
     <% end %>
   </div>
 </div>

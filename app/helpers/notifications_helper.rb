@@ -1,7 +1,7 @@
 module NotificationsHelper
   def notification_form(notification)
-    visitor=notification.visiter.name #, style:"font-weight: bold;"
-    visitor_post=notification.visitor.name, notifications.post#, style:"font-weight: bold;"
+    visitor=notification.visitor.username #, style:"font-weight: bold;"
+    visitor_post=notification.visitor.username, notification.post#, style:"font-weight: bold;"
     your_reply=link_to "あなたの手紙", notification.reply#, style:"font-weight: bold;", remote: true
 
     case notification.action

@@ -1,0 +1,14 @@
+<div class="main notifications-show">
+  <div class="container">
+    <div class="notifications-show-item">
+      <p>
+        <span><%= @notification.dear %></span>
+        <span><%= @notification.content %></span>
+        <span><%=  @notifications.from %><br>
+        <%= @notification.created_at.to_s(:datetime_jp) %></span>
+        <span><%= link_to "返事を書く", new_post_reply_path,%></span>
+      </p>
+
+    </div>
+  </div>
+</div>
