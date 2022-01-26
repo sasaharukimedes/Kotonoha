@@ -5,10 +5,10 @@
         <span><%= @post.dear %></span>
         <span><%= @post.content %></span>
         <span><%=  @post.from %><br>
-        <%= @post.created_at.to_s(:datetime_jp) %></span>
-        <span><%= link_to "返事を書く", new_post_reply_path,%></span>
+        <%= @post.created_at.to_formatted_s(:datetime_jp) %></span>
+
       </p>
-      
+
     </div>
   </div>
 </div>

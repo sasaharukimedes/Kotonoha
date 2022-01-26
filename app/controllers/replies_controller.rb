@@ -1,5 +1,5 @@
 class RepliesController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!
 
   def index
     @replies = Reply.all.order(created_at: :desc).limit(10)
@@ -15,18 +15,17 @@ class RepliesController < ApplicationController
 
   def create
     @reply = Reply.new(reply_params)
-    @post_id = @reply.post_id
-
+    @reply.post_id = current_user.post.id
     @reply.save!
 
     #通知メソッドの呼び出し
-    @reply = Reply.find(params[:reply_id])
     @reply.create_reply_notification_by(current_user)
+
+    rescue ActiveRecord::RecordInvalid => e
+      pp e.record.errors
 
     redirect_to reply_path
   end
-
-
 
 
       private
