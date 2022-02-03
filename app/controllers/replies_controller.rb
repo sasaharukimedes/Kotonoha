@@ -2,7 +2,7 @@ class RepliesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @replies = Reply.all.order(created_at: :desc).limit(10)
+    @replies = Reply.all
   end
 
   def show
@@ -15,7 +15,7 @@ class RepliesController < ApplicationController
 
   def create
     @reply = Reply.new(reply_params)
-    @reply.post_id = current_user.post.id
+    post_id = @reply.post.id
     @reply.save!
 
     #通知メソッドの呼び出し
@@ -25,6 +25,11 @@ class RepliesController < ApplicationController
       pp e.record.errors
 
     redirect_to reply_path
+  end
+
+
+  def counter_post
+    @counter_post = Post.find_by(post_id: self.post_id)
   end
 
 
