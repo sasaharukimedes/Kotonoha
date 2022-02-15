@@ -33,8 +33,7 @@ class PostsController < ApplicationController
 
     @receiver.update!(received_at: :Time.now)
 
-    redirect_to posts_path notice, flash: {success: "手紙は誰かのもとへ届きました!"}
-    #なぜ表示されない？？
+    redirect_to root_path
   end
 
 

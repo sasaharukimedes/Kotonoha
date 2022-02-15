@@ -11,11 +11,11 @@ class RepliesController < ApplicationController
 
   def new
     @reply = Reply.new
+    @post = Post.find(params[:post_id])
   end
 
   def create
     @reply = Reply.new(reply_params)
-    post_id = @reply.post.id
     @reply.save!
 
     #通知メソッドの呼び出し
@@ -24,12 +24,7 @@ class RepliesController < ApplicationController
     rescue ActiveRecord::RecordInvalid => e
       pp e.record.errors
 
-    redirect_to reply_path
-  end
-
-
-  def counter_post
-    @counter_post = Post.find_by(post_id: self.post_id)
+    redirect_to root_path
   end
 
 
