@@ -16,15 +16,17 @@ class RepliesController < ApplicationController
 
   def create
     @reply = Reply.new(reply_params)
+    @post = Post.find(params[:post_id])
+    @reply.post_id = @post.id
     @reply.save!
 
     #通知メソッドの呼び出し
-    @reply.create_reply_notification_by(current_user)
+    @reply.create_notification_by(current_user)
 
     rescue ActiveRecord::RecordInvalid => e
       pp e.record.errors
 
-    redirect_to root_path
+    redirect_to controller: :notifications, action: :index
   end
 
 

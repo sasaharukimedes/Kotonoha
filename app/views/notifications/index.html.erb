@@ -4,7 +4,7 @@
     <% @notifications.each do |notification| %>
       <div class="notifications-index-item">
       <% case notification.action %>
-      <% when 'post' %>
+      <% when "post" %>
         <%= link_to(notification.post.dear, "/posts/#{notification.post.id}") %> <br>
       <% when "reply" %>
         <%= link_to(notification.reply.dear, "/replies/#{notification.reply.id}") %> <br>
