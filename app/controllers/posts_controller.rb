@@ -33,7 +33,7 @@ class PostsController < ApplicationController
 
     @receiver.update!(received_at: :Time.now)
 
-    redirect_to root_path
+
   end
 
 

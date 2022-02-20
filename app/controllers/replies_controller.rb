@@ -22,11 +22,15 @@ class RepliesController < ApplicationController
 
     #通知メソッドの呼び出し
     @reply.create_notification_by(current_user)
+    respond_to do |format|
+      format.html {redirect_to request.referrer}
+      format.js
+    end
 
     rescue ActiveRecord::RecordInvalid => e
       pp e.record.errors
 
-    redirect_to controller: :notifications, action: :index
+
   end
 
 

@@ -14,9 +14,6 @@
             </li>
             <li class="nav-item active">
               <%= link_to "手紙を読む", notifications_path, class: 'nav-link' %>
-              <% if unchecked_notifications.any? %>
-                <i class = "fa fa-circle notification-circle">
-              <% end %>
             </li>
             <li class="nav-item active">
               <%= link_to 'アカウント編集', edit_user_registration_path, class: 'nav-link' %>

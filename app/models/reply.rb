@@ -13,7 +13,7 @@ class Reply < ApplicationRecord
   #いったんこっちでやる
   def create_notification_by(current_user)
     notification=current_user.active_notifications.new(
-      post_id:self.post_id,
+      reply_id:self.id,
       visited_id: post.user.id,
       action:"reply"
     )
