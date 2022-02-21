@@ -17,7 +17,7 @@ class Reply < ApplicationRecord
       visited_id: post.user.id,
       action:"reply"
     )
-    notification.save if notification.valid?
+    notification.save!
   end
 
 end
