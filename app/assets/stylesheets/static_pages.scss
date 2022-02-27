@@ -54,24 +54,47 @@ body {
 
 /* about ================================ */
 
-.col-md-auto {
+.col-sm-auto {
   background-color: #f8a281;
 }
 
-.col-md-auto h2 {
+.col-sm-auto h2 {
   font-size: 64px;
   font-weight: 500;
   line-height: 1.4;
   color:#FFF7EB;
 }
 
-.col-md-auto p {
+.col-sm-auto p {
   font-weight: 200;
   font-size: 20px;
   color: #FFF7EB;
 }
 
-.col-md-auto {
+.col-sm-auto {
+  width: 50%;
+}
+
+/* play ================================ */
+
+.col-sm-auto {
+  background-color: #f8a281;
+}
+
+.col-sm-auto h2 {
+  font-size: 64px;
+  font-weight: 500;
+  line-height: 1.4;
+  color:#FFF7EB;
+}
+
+.col-sm-auto p {
+  font-weight: 200;
+  font-size: 20px;
+  color: #FFF7EB;
+}
+
+.col-sm-auto {
   width: 50%;
 }
 

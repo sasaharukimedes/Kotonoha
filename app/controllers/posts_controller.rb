@@ -20,19 +20,13 @@ class PostsController < ApplicationController
     @receiver = User.where.not(id:current_user.id).order(:received_at).first
     @post.receiver_id = @receiver.id
     @post.save!
-
+    @receiver.update!(received_at: Time.now)
     @post.create_notification_by(current_user)
-    respond_to do |format|
-      format.html {redirect_to request.referrer}
-      format.js
-    end
 
+    redirect_to home_path
 
     rescue ActiveRecord::RecordInvalid => e
       pp e.record.errors
-
-    @receiver.update!(received_at: :Time.now)
-
 
   end
 

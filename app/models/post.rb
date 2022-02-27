@@ -24,7 +24,7 @@ class Post < ApplicationRecord
       visited_id: self.receiver_id,
       action:"post"
     )
-    notification.save if notification.valid?
+    notification.save!
   end
 
 
