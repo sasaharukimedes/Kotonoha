@@ -4,11 +4,12 @@
       <p>
         <span><%= @notification.dear %></span>
         <span><%= @notification.content %></span>
-        <span><%=  @notifications.from %><br>
+        <span><%=  @notification.from %><br>
         <%= @notification.created_at.to_s(:datetime_jp) %></span>
-        <span><%= link_to "返事を書く", new_post_reply_path,%></span>
+        <% unless @notification.post.reply.exist? %>
+          <%= link_to "返事を書く", new_post_reply_path,%>
+        <% end %>
       </p>
-
     </div>
   </div>
 </div>
