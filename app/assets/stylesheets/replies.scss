@@ -44,7 +44,7 @@
   box-shadow: 0 2px 6px #c1ced7;
   overflow: hidden;
   background-image: url(/ocean-letter.jpeg); background-size: cover; background-repeat: no-repeat;
-  
+
 }
 
 .replies-show-item img {
@@ -81,6 +81,9 @@
 .replies-show-item p span:first-child {
   text-align: left;
 }
+.replies-show-item p span:nth-child(2) {
+  text-align: center;
+}
 .replies-show-item p span:nth-child(3) {
   text-align: right;
 }
@@ -89,53 +92,11 @@
   margin-bottom: 0;
 }
 
-
-.reply-time {
-  color:#FF9933;
-  margin: 10px;
-  text-align: right;
-  background-image:
-    repeating-linear-gradient(
-      #FFEACE,
-      #FFEACE calc(2.0rem - 3px),
-      #ced4da calc(2.0rem - 1px),
-      #ced4da 1.5rem,
-      #FFEACE 1.5rem
-    );
-  background-origin: content-box;
-  background-clip: content-box;
-  background-attachment: local;
-}
-
-
-.like-btn {
-  color: #8899a6;
-}
-
-.like-btn-unlike {
-  color: #ff2581;
-}
-
-.replies-show-item .fa {
-  font-size: 16px;
-  margin-right: 3px;
-}
-
-.reply-menus {
-  float: right;
-}
-
-.reply-menus a, .reply-menus input {
-  color: #8899a6;
-  text-decoration: underline;
-  font-size: 14px;
-}
-
 /* replies/new ================================ */
 
 .replies-new .form-body{
   background-image: url(/ocean-letter.jpeg); background-size: cover; background-repeat: no-repeat;
-  
+
 }
 
 .replies-new textarea {

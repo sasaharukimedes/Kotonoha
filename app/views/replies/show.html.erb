@@ -5,7 +5,7 @@
         <span><%= @reply.dear %></span>
         <span><%= @reply.content %></span>
         <span><%=  @reply.from %><br>
-        <%= @reply.created_at.to_s(:datetime_jp) %></span>
+        <%= @reply.created_at.to_formatted_s(:datetime_jp) %></span>
       </p>
     </div>
   </div>
