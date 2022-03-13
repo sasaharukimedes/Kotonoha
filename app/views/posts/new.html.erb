@@ -19,12 +19,15 @@
           <%= form.text_field :dear , placeholder: "どこかの誰かへ"%>
 
           <%= form.label :本文 %><br>
-          <%= form.text_area :content %>
+          <%= form.text_area :content , class: 'form-control  js-text', id: "input-text" %>
+          <P class="js-text-count pull-right", id="counter">文字</P>
+
 
           <%= form.label :差出人 %><br>
           <%= form.text_field :from, placeholder: "試される大地の若者より"%>
 
           <%= form.submit value="投函する" %>
+
         </div>
       </div>
     <% end %>

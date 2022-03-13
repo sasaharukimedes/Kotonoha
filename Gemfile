@@ -29,6 +29,7 @@ gem 'bcrypt'
 gem 'devise'
 gem 'devise-i18n'
 gem 'data-confirm-modal'
+gem "jquery-rails"
 
 
 # Use Active Storage variant
