@@ -1,5 +1,14 @@
 ja:
   activerecord:
+    attributes:
+      post:
+        Dear: 宛名
+        Content: 本文
+        From: 差出人
+      reply:
+        Dear: 宛名
+        Content: 本文
+        From: 差出人
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'

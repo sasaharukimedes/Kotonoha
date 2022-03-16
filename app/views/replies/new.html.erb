@@ -18,8 +18,8 @@
             <%= form.label :宛名 %><br>
             <%= form.text_field :dear , placeholder: "#{@post.from}へ"%>
 
-            <%= form.label :本文 %><br>
-            <%= form.text_area :content, placeholder: "あなたの大切な人にかけるような言葉で書きましょう！" %>
+            <%= form.label :本文 %><P class="js-text-count pull-right", id="counter"></P><br>
+            <%= form.text_area :content, class: 'form-control  js-text', id: "input-text", placeholder: "あなたの大切な人にかけるような言葉で書きましょう！" %>
 
             <%= form.label :差出人 %><br>
             <%= form.text_field :from, placeholder: "#{current_user.username} より" %>

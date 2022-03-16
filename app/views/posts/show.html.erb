@@ -6,7 +6,7 @@
         <span><%= @post.content %></span>
         <span><%=  @post.from %><br>
         <%= @post.created_at.to_formatted_s(:datetime_jp) %></span>
-        <span><%= link_to"返事を書く", new_post_reply_path(@post.id) %></span>
+        <span><%= link_to"返事を書く", new_post_reply_path(@post.id), data: {"turbolinks" => false} %></span>
       </p>
 
     </div>
