@@ -1,17 +1,9 @@
 <div class="main replies-new">
   <div class="container">
     <h1 class="form-heading">返事を書く</h1>
-    <%=  form_with scope: :reply, url: post_replies_path, local: true do |form| %>
+    <%=  form_with scope: :reply, url: post_replies_path, model: @reply, local: true do |form| %>
 
-      <% if @reply.errors.any? %>
-        <div class="alert alert-warning">
-          <ul>
-            <% @reply.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-            <% end %>
-          </ul>
-        </div>
-      <% end %>
+      <%= render 'layouts/error_messages', model: form.object %>
 
       <div class="form">
         <div class="form-body">

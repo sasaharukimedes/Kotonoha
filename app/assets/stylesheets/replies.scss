@@ -56,18 +56,10 @@
   object-fit: cover;
 }
 
-.replies-show-item .reply-user-name a {
-  vertical-align: middle;
-  font-size: 24px;
-  margin-left: 15px;
-}
-
 .replies-show-item p {
   font-size: 20px;
   margin: 20px 0;
-  color: #FF9933;
-
-  background-image: linear-gradient(180deg, #FFEACE 99%, #ced4da 99%, #646464 100%);
+  color: #ff4848;
 
   background-repeat: repeat-y;
   background-size: 100% 2.0em;
