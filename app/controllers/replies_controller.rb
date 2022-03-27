@@ -19,7 +19,6 @@ class RepliesController < ApplicationController
     @post = Post.find(params[:post_id])
     @reply.post_id = @post.id
     if @reply.save
-      @reply.save!
       #通知メソッドの呼び出し
       @reply.create_notification_by(current_user)
       flash[:notice] = "返事が作られました!"
