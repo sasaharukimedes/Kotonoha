@@ -9,11 +9,6 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
-  def reply
-    reply = Reply.find(params[:id])
-  end
-
-
   def new
     @post = Post.new
   end
