@@ -13,9 +13,10 @@ module Letters
     config.i18n.default_locale = :ja
 
     # I18nライブラリに訳文の探索場所を指示する
-config.i18n.load_path += Dir[Rails.root.join('config/locales/ja.yml').to_s]
-config.i18n.load_path += Dir[Rails.root.join('config/locales/models/model.yml').to_s]
+    config.i18n.load_path += Dir[Rails.root.join('config/locales/ja.yml').to_s]
+    config.i18n.load_path += Dir[Rails.root.join('config/locales/models/model.yml').to_s]
 
+    config.assets.initialize_on_precompile = false
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
