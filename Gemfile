@@ -26,6 +26,8 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 gem 'bcrypt'
 
+gem "dartsass-rails"
+
 gem 'devise'
 gem 'rails-i18n'
 gem 'devise-i18n'
