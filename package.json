@@ -9,7 +9,6 @@
     "@rails/webpacker": "5.4.3",
     "bootstrap": "4.3.1",
     "jquery": "^3.5.1",
-    "node-sass": "^7.0.0",
     "popper.js": "^1.16.1",
     "turbolinks": "^5.2.0",
     "webpack": "^4.46.0",
@@ -17,6 +16,8 @@
   },
   "version": "0.1.0",
   "devDependencies": {
+    "sass": "^1.49.11",
+    "fibers": "^5.0.1",
     "webpack-dev-server": "^3"
   }
 }
